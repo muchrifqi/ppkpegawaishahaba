@@ -68,6 +68,43 @@
       border-color: rgba(255, 255, 255, 0.4);
       transform: translateY(-5px);
     }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .modal button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal button#confirmYes {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .modal button#confirmBack {
+      background: #f44336;
+      color: white;
+    }
     .confirmation {
       display: none;
       margin-top: 2rem;
@@ -93,7 +130,9 @@
     </div>
     <p id="statusMessage" style="margin-top: 1rem;"></p>
   </div>
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
   <footer class="footer">
   &copy; 2025 Shahaba SD & Prasekolah. All rights reserved.
   </footer>
@@ -157,11 +196,21 @@
     }
 
     async function presensi(nama) {
-      if (!confirm(`Apakah Anda yakin ingin melakukan presensi sebagai ${nama}?`)) {
-        return; // Batalkan jika pengguna tidak yakin
-      }
-      const button = Array.from(buttons).find(btn => btn.innerText === nama);
-      button.disabled = true;
+      const { isConfirmed } = await Swal.fire({
+        title: `Apakah Anda ${nama}?`,
+        text: "Pendataan presensi tidak dapat diwakilkan.",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: `Ya, Saya ${nama}`,
+        cancelButtonText: "Kembali",
+      });
+
+    if (!isConfirmed) {
+      return; // Batalkan jika pengguna memilih "Kembali"
+    }
+
+    const button = Array.from(buttons).find(btn => btn.innerText === nama);
+    button.disabled = true;
 
       try {
         // Periksa lokasi pengguna

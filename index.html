@@ -6,7 +6,7 @@
   <title>Pendataan Presensi</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0d47a1, #1a73e8);
       color: white;
       display: flex;
@@ -71,6 +71,15 @@
     .confirmation {
       display: none;
       margin-top: 2rem;
+    }
+    #statusMessage {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ffffff; /* Warna default */
+    }
+    
+    #statusMessage.error {
+      color: #ff6b6b; /* Warna merah untuk pesan error */
     }
   </style>
 </head>
@@ -157,28 +166,34 @@
     }
 
     async function presensi(nama) {
-      const button = Array.from(buttons).find(btn => btn.innerText === nama);
-      button.disabled = true;
+  const button = Array.from(buttons).find(btn => btn.innerText === nama);
+  button.disabled = true;
 
-      try {
-        // Periksa lokasi pengguna
-        await checkLocation();
+  try {
+    // Periksa lokasi pengguna
+    await checkLocation();
 
-        // Kirim data ke Google Apps Script
-        const response = await fetch(`https://script.google.com/macros/s/AKfycbysZpYeJ1Gr8TctQ-DC_VH3pYpQTrZvhiqebICeOV4Z2PsOAddECpPO4koTeLHMHFRfmg/exec?nama=${encodeURIComponent(nama)}`);
-        const result = await response.text();
+    // Kirim data ke Google Apps Script
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbw-Cfx8jKwxlPj2-MzMhu0dt59O2smwuwOWQrBl3RZA2PDfszY_5brZdIoNMvvm9KHvKA/exec?nama=${encodeURIComponent(nama)}`);
+    const result = await response.text();
 
-        // Tampilkan konfirmasi
-        button.innerText = `${nama} - Sudah Datang`;
-        const waktu = new Date().toLocaleTimeString();
-        confirmationMessage.innerText = `${nama} pukul ${waktu}`;
-        confirmation.style.display = 'block';
-        statusMessage.innerText = "";
-      } catch (error) {
-        statusMessage.innerText = "Terjadi kesalahan. Silakan coba lagi.";
-        button.disabled = false;
-      }
-    }
+    // Tampilkan konfirmasi
+    button.innerText = `${nama} - Sudah Datang`;
+    const waktu = new Date().toLocaleTimeString();
+
+    // Tambahkan ke daftar list kedatangan
+    const listItem = document.createElement('li');
+    listItem.textContent = `${nama} - ${waktu}`;
+    attendanceItems.appendChild(listItem);
+
+    statusMessage.innerText = "";
+  } catch (error) {
+    // Tampilkan pesan error
+    statusMessage.innerText = error;
+    statusMessage.style.color = "#ff6b6b"; // Warna merah untuk pesan error
+    button.disabled = false; // Aktifkan kembali tombol
+  }
+}
   </script>
 </body>
 </html>

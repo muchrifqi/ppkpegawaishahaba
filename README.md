@@ -1,10 +1,10 @@
 # Sistem Presensi Online
 
-Sistem ini dirancang untuk mencatat kehadiran pegawai secara online dengan fitur validasi lokasi. Data presensi disimpan di Google Spreadsheet, dan sistem hanya dapat diakses dalam radius 100 km dari lokasi yang ditentukan.
+Sistem ini dirancang untuk mencatat kehadiran pegawai secara online dengan fitur validasi lokasi. Data presensi disimpan di Google Spreadsheet, dan sistem hanya dapat diakses dalam radius 20 meter dari lokasi yang ditentukan.
 
 ## Fitur
 - **Tombol Presensi**: Setiap pegawai memiliki tombol presensi sendiri.
-- **Validasi Lokasi**: Presensi hanya bisa dilakukan dalam radius 100 km dari lokasi yang ditentukan.
+- **Validasi Lokasi**: Presensi hanya bisa dilakukan dalam radius 20 meter dari lokasi yang ditentukan.
 - **Konfirmasi**: Menampilkan konfirmasi setelah presensi berhasil.
 - **Penyimpanan Data**: Data presensi disimpan di Google Spreadsheet.
 
@@ -14,7 +14,7 @@ Sistem ini dirancang untuk mencatat kehadiran pegawai secara online dengan fitur
 - Saat tombol diklik, sistem akan memeriksa lokasi pengguna.
 
 ### 2. Validasi Lokasi
-- Sistem menggunakan GPS untuk memastikan pengguna berada dalam radius 100 km dari lokasi yang ditentukan.
+- Sistem menggunakan GPS untuk memastikan pengguna berada dalam radius 20 meter dari lokasi yang ditentukan.
 - Jika berada di luar radius, presensi akan ditolak.
 
 ### 3. Kirim Data ke Google Spreadsheet

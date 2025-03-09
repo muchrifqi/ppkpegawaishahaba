@@ -140,28 +140,28 @@
     }
 
     async function presensi(nama) {
-  const button = Array.from(buttons).find(btn => btn.innerText === nama);
-  button.disabled = true;
+      const button = Array.from(buttons).find(btn => btn.innerText === nama);
+      button.disabled = true;
 
-  try {
-    // Periksa lokasi pengguna
-    await checkLocation();
+      try {
+        // Periksa lokasi pengguna
+        await checkLocation();
 
-    // Kirim data ke Google Form
-    const formUrl = `https://docs.google.com/forms/d/e/1Owh0a4ptMqtrjOqReWF2TiuTApSQ0OswVLKatkixJdI/formResponse?usp=pp_url&entry.1378834565=${encodeURIComponent(nama)}`;
-    await fetch(formUrl, { mode: 'no-cors' });
+        // Kirim data ke Google Apps Script
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbysZpYeJ1Gr8TctQ-DC_VH3pYpQTrZvhiqebICeOV4Z2PsOAddECpPO4koTeLHMHFRfmg/exec?nama=${encodeURIComponent(nama)}`);
+        const result = await response.text();
 
-    // Tampilkan konfirmasi
-    button.innerText = `${nama} - Sudah Datang`;
-    const waktu = new Date().toLocaleTimeString();
-    confirmationMessage.innerText = `${nama} pukul ${waktu}`;
-    confirmation.style.display = 'block';
-    statusMessage.innerText = "";
-  } catch (error) {
-    statusMessage.innerText = "Terjadi kesalahan. Silakan coba lagi.";
-    button.disabled = false;
-  }
-}
+        // Tampilkan konfirmasi
+        button.innerText = `${nama} - Sudah Datang`;
+        const waktu = new Date().toLocaleTimeString();
+        confirmationMessage.innerText = `${nama} pukul ${waktu}`;
+        confirmation.style.display = 'block';
+        statusMessage.innerText = "";
+      } catch (error) {
+        statusMessage.innerText = "Terjadi kesalahan. Silakan coba lagi.";
+        button.disabled = false;
+      }
+    }
   </script>
 </body>
 </html>

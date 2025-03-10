@@ -285,7 +285,7 @@ async function getIPAddress() {
 // Fungsi untuk memeriksa status tombol dari spreadsheet
 async function getButtonStatus() {
   try {
-    const response = await fetch(`https://script.google.com/macros/s/AKfycbzqtvbe1DB9FXuvJuW2rGk_Ljr7lYpSDHxVFbIOs8M5eYVF_ku1WtAhHXVuEhjZ2b2DQQ/exec?action=getStatus`);
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbzs6_8xq-KSMjonJ2dU72AMO2m9YnIsHr_0s0WhNyjXa8MecZrnTXjZs635ajffULgRhQ/exec?action=getStatus`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -334,7 +334,7 @@ async function presensi(nama) {
     // Kirim data ke Google Apps Script
     const ip = await getIPAddress();
     const response = await fetch(
-      `https://script.google.com/macros/s/AKfycbzqtvbe1DB9FXuvJuW2rGk_Ljr7lYpSDHxVFbIOs8M5eYVF_ku1WtAhHXVuEhjZ2b2DQQ/exec?action=presensi&nama=${encodeURIComponent(nama)}&ip=${encodeURIComponent(ip)}`
+      `https://script.google.com/macros/s/AKfycbzs6_8xq-KSMjonJ2dU72AMO2m9YnIsHr_0s0WhNyjXa8MecZrnTXjZs635ajffULgRhQ/exec?action=presensi&nama=${encodeURIComponent(nama)}&ip=${encodeURIComponent(ip)}`
     );
     const result = await response.text();
 

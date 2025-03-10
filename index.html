@@ -110,7 +110,14 @@
       margin-top: 2rem;
       animation: fadeIn 0.5s ease-in-out;
     }
-
+    #statusMessage {
+      color: var(--error-color); /* Warna merah */
+      background: rgb(255, 255, 255); /* Background semi-transparan */
+      padding: 3px; /* Tambahkan padding */
+      border-radius: 10px; /* Bulatkan sudut */
+      font-size: 1rem; /* Perbesar ukuran font */
+      margin-top: 1rem;
+    }
     #loading {
       display: none;
       margin-top: 1rem;
@@ -199,7 +206,6 @@
 
       return R * c;
     }
-
     // Fungsi untuk memeriksa lokasi pengguna
     function checkLocation() {
       return new Promise((resolve, reject) => {
@@ -211,9 +217,9 @@
               const userLat = position.coords.latitude;
               const userLng = position.coords.longitude;
 
-              // Cek apakah pengguna berada dalam radius 20 m dari salah satu lokasi yang diizinkan
+              // Cek apakah pengguna berada dalam radius 100 km dari salah satu lokasi yang diizinkan
               const isWithinRadius = allowedLocations.some(
-                (loc) => calculateDistance(userLat, userLng, loc.lat, loc.lng) <= 20
+                (loc) => calculateDistance(userLat, userLng, loc.lat, loc.lng) <= 100000
               );
 
               if (isWithinRadius) {
@@ -264,7 +270,7 @@
     });
 
     // Tampilkan konfirmasi di halaman
-    button.innerText = `${nama} - Sudah datang`;
+    button.innerText = `${nama} - Sudah Datang`;
     const waktu = new Date().toLocaleTimeString();
     confirmationMessage.innerText = `${nama} pukul ${waktu}`;
     confirmation.style.display = 'block';

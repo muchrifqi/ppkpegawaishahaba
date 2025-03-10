@@ -11,12 +11,12 @@
       --secondary-color: #000f23;
       --success-color: #4caf50;
       --error-color: #f44336;
-      --background-gradient: linear-gradient(-45deg, #6b6721, #ad5c00, #003b93, #002d67);
+      --background-gradient: linear-gradient(-45deg, #8e8820, #c06e11, #003b93, #002d67);
       --text-color: white;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--background-gradient);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
@@ -28,7 +28,6 @@
       margin: 0;
       padding: 20px;
     }
-
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -37,7 +36,7 @@
 
     .container {
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(1px);
       padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -72,7 +71,7 @@
     button {
       padding: 1rem;
       font-size: 1rem;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(154, 185, 197, 0.189);
       border: 2px solid rgba(255, 255, 255, 0.2);
       color: white;
       border-radius: 10px;
@@ -144,22 +143,24 @@
 </head>
 <body>
   <div class="container">
-    <h1>Sistem Pendataan Presensi</h1>
+    <h1><i class="fas fa-calendar-check"></i> Sistem Pendataan Presensi</h1>
     <div class="button-container">
-      <button onclick="presensi('Deva Mandela')">Deva Mandela</button>
-      <button onclick="presensi('Dwi Indo')">Dwi Indo</button>
-      <button onclick="presensi('Muchamad Rifqi Hermawan')">Muchamad Rifqi Hermawan</button>
-      <button onclick="presensi('Salma Siti Saffiyah')">Salma Siti Saffiyah</button>
-      <button onclick="presensi('Nurhayati')">Nurhayati</button>
-      <button onclick="presensi('Muharrom Susetyo Nugroho')">Muharrom Susetyo Nugroho</button>
-      <button onclick="presensi('Nandar Sunandar')">Nandar Sunandar</button>
-      <button onclick="presensi('Salma Satira Askar')">Salma Satira Askar</button>
+      <div class="button-container">
+        <button onclick="presensi('Deva Mandela')">Deva Mandela</button>
+        <button onclick="presensi('Dwi Indo')">Dwi Indo</button>
+        <button onclick="presensi('Muchamad Rifqi Hermawan')">Muchamad Rifqi Hermawan</button>
+        <button onclick="presensi('Salma Siti Saffiyah')">Salma Siti Saffiyah</button>
+        <button onclick="presensi('Nurhayati')">Nurhayati</button>
+        <button onclick="presensi('Muharrom Susetyo Nugroho')">Muharrom Susetyo Nugroho</button>
+        <button onclick="presensi('Nandar Sunandar')">Nandar Sunandar</button>
+        <button onclick="presensi('Salma Satira Askar')">Salma Satira Askar</button>
+      </div>
     </div>
     <div id="loading">
       <i class="fas fa-spinner"></i> Memproses...
     </div>
     <div id="confirmation" class="confirmation">
-      <h2>Pendataan Berhasil</h2>
+      <h2><i class="fas fa-check-circle"></i> Pendataan Berhasil</h2>
       <p id="confirmationMessage"></p>
     </div>
     <p id="statusMessage" style="margin-top: 1rem;"></p>

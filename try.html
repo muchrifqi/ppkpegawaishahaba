@@ -354,8 +354,8 @@ async function presensi(nama) {
     });
 
     // Update tampilan tombol
-    button.innerText = `${nama} - Sudah Datang`;
     const waktu = new Date().toLocaleTimeString();
+    button.innerText = `${nama} - ${waktu}`;
     confirmationMessage.innerText = `${nama} pukul ${waktu}`;
     confirmation.style.display = 'block';
     statusMessage.innerText = "";

@@ -11,7 +11,7 @@
       --secondary-color: #000f23;
       --success-color: #4caf50;
       --error-color: #f44336;
-      --background-gradient: linear-gradient(-45deg, #e15f0e, #f0b100, #172e69, #000f34);
+      --background-gradient: linear-gradient(-45deg, /*#e15f0e, #f0b100,*/ #0048ff, #000f34);
       --text-color: white;
     }
 
@@ -19,7 +19,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--background-gradient);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      /* animation: gradientBG 15s ease infinite; */
       color: var(--text-color);
       display: flex;
       justify-content: center;
@@ -44,7 +44,7 @@
       width: 90%;
       text-align: center;
       animation: fadeIn 1s ease-in-out;
-      margin-top: 55px; /* Tambahkan margin atas agar tidak menutupi judul */
+      margin-top: 30px; /* Tambahkan margin atas agar tidak menutupi judul */
     }
 
     @keyframes fadeIn {
@@ -251,9 +251,9 @@ function checkLocation() {
           const userLat = position.coords.latitude;
           const userLng = position.coords.longitude;
 
-          // Cek apakah pengguna berada dalam radius 100 km dari salah satu lokasi yang diizinkan
+          // Cek apakah pengguna berada dalam radius 50 kilo meter dari salah satu lokasi yang diizinkan
           const isWithinRadius = allowedLocations.some(
-            (loc) => calculateDistance(userLat, userLng, loc.lat, loc.lng) <= 100000
+            (loc) => calculateDistance(userLat, userLng, loc.lat, loc.lng) <= 50000
           );
 
           if (isWithinRadius) {
@@ -308,9 +308,10 @@ async function updateButtonStatus() {
 
   buttons.forEach(button => {
     const nama = button.innerText;
+    const waktu = new Date().toLocaleTimeString();
     if (status[nama] === "Nonaktif") {
       button.disabled = true;
-      button.innerText = `${nama} - Sudah Datang`;
+      button.innerText = `${nama} - ${waktu}`;
     }
   });
 }

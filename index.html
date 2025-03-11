@@ -11,7 +11,7 @@
       --secondary-color: #000f23;
       --success-color: #4caf50;
       --error-color: #f44336;
-      --background-gradient: linear-gradient(-45deg, #e15f0e, #f0b100, #172e69, #000f34);
+      --background-gradient: linear-gradient(-45deg, /*#e15f0e, #f0b100,*/ #0048ff, #000f34);
       --text-color: white;
     }
 
@@ -19,7 +19,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--background-gradient);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      /* animation: gradientBG 15s ease infinite; */
       color: var(--text-color);
       display: flex;
       justify-content: center;
@@ -44,7 +44,7 @@
       width: 90%;
       text-align: center;
       animation: fadeIn 1s ease-in-out;
-      margin-top: 55px; /* Tambahkan margin atas agar tidak menutupi judul */
+      margin-top: 30px; /* Tambahkan margin atas agar tidak menutupi judul */
     }
 
     @keyframes fadeIn {
@@ -308,9 +308,10 @@ async function updateButtonStatus() {
 
   buttons.forEach(button => {
     const nama = button.innerText;
+    const waktu = new Date().toLocaleTimeString();
     if (status[nama] === "Nonaktif") {
       button.disabled = true;
-      button.innerText = `${nama} - Sudah Datang`;
+      button.innerText = `${nama} - ${waktu}`;
     }
   });
 }
@@ -353,8 +354,8 @@ async function presensi(nama) {
     });
 
     // Update tampilan tombol
-    button.innerText = `${nama} - Sudah Datang`;
     const waktu = new Date().toLocaleTimeString();
+    button.innerText = `${nama} - ${waktu}`;
     confirmationMessage.innerText = `${nama} pukul ${waktu}`;
     confirmation.style.display = 'block';
     statusMessage.innerText = "";

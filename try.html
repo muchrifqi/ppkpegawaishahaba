@@ -291,7 +291,7 @@ async function getIPAddress() {
 async function getButtonStatus() {
   try {
     const response = await fetch(
-      `https://script.google.com/macros/s/AKfycbzTFT1vs5aPRBNNDPX47CZIdChdYUZG2Zy529BhI16pPBdPij7D5BF6VSZp-27pFN4CjQ/exec?action=getStatus`
+      `https://script.google.com/macros/s/AKfycbxiONB6ZxClTKwoD-GMJU2vp-rgdDFfEaFfAG3zyAqWchh_XWrsYDlqiX_2P12zNn0D2g/exec?action=getStatus`
     );
     const data = await response.json();
     return data;
@@ -341,7 +341,7 @@ async function presensi(nama) {
     // Kirim data ke Google Apps Script
     const ip = await getIPAddress();
     const response = await fetch(
-      `https://script.google.com/macros/s/AKfycbzTFT1vs5aPRBNNDPX47CZIdChdYUZG2Zy529BhI16pPBdPij7D5BF6VSZp-27pFN4CjQ/exec?action=presensi&nama=${encodeURIComponent(nama)}&ip=${encodeURIComponent(ip)}`
+      `https://script.google.com/macros/s/AKfycbxiONB6ZxClTKwoD-GMJU2vp-rgdDFfEaFfAG3zyAqWchh_XWrsYDlqiX_2P12zNn0D2g/exec?action=presensi&nama=${encodeURIComponent(nama)}&ip=${encodeURIComponent(ip)}`
     );
     const result = await response.text();
 

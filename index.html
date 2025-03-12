@@ -28,11 +28,11 @@
       margin: 0;
       padding: 20px;
     }
-    @keyframes gradientBG {
+    /*@keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }
+    }*/
 
     .container {
       background: rgba(255, 255, 255, 0.1);
@@ -82,7 +82,7 @@
     h1 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      animation: slideIn 1s ease-in-out;
+      /*animation: slideIn 1s ease-in-out;*/
     }
 
     @keyframes slideIn {
@@ -349,7 +349,7 @@ async function presensi(nama) {
     // Tampilkan pesan sukses dengan SweetAlert2
     await Swal.fire({
       icon: 'success',
-      title: 'Presensi Berhasil',
+      title: 'Syukran!',
       text: `Presensi ${nama} telah dicatat.`,
     });
 

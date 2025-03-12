@@ -311,7 +311,7 @@ async function updateButtonStatus() {
     const waktu = new Date().toLocaleTimeString();
     if (status[nama] === "Nonaktif") {
       button.disabled = true;
-      button.innerText = `${nama} - ${waktu}`;
+      button.innerText = `${nama} ✓`;
     }
   });
 }
@@ -355,7 +355,7 @@ async function presensi(nama) {
 
     // Update tampilan tombol
     const waktu = new Date().toLocaleTimeString();
-    button.innerText = `${nama} - ${waktu}`;
+    button.innerText = `${nama} ✓`;
     confirmationMessage.innerText = `${nama} pukul ${waktu}`;
     confirmation.style.display = 'block';
     statusMessage.innerText = "";

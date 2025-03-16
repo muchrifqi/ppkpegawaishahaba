@@ -1,0 +1,179 @@
+:root {
+    --primary-color: #172e69; /* Warna biru shahaba sd */
+    --secondary-color: #2b2b2b;
+    --accent-color: #e15f0e;
+    --background-gradient: linear-gradient(-45deg, #268eca, #172e69); /* Gradien biru */
+    --text-color: white; /* Warna teks putih */
+    --error-color: #870900; /* Warna merah untuk pesan error */
+    --success-color: #006c04; /* Warna hijau untuk pesan sukses */
+    --button-hover-color: rgba(6, 158, 54, 0.758); /* Warna hijau saat hover */
+    --curve-background: white; /* Warna background curve */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background-gradient);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Styling untuk curve (tetap sama dengan halaman index) */
+.curve {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: var(--curve-background);
+    border-radius: 0 0 50% 50%;
+    transform: scaleX(1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100; /* Pastikan curve di atas elemen lain */
+}
+
+.curve h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem; /* Ukuran font diperkecil */
+    margin: 0;
+    font-weight: bold;
+}
+
+.curve h2 {
+    color: var(--secondary-color);
+    font-size: 0.9rem; /* Ukuran font diperkecil */
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Styling untuk loading screen */
+.loading-screen {
+    position: fixed;
+    top: 100px; /* Mulai di bawah curve */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px); /* Tinggi layar dikurangi tinggi curve */
+    background: var(--background-gradient);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Ubah ke flex-start agar konten bisa di-scroll */
+    z-index: 50; /* Di bawah curve */
+    overflow-y: auto; /* Aktifkan scrolling vertikal */
+}
+
+.loading-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 1rem;
+    border-radius: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 1rem ; /* Tambahkan margin atas dan bawah */
+    margin-bottom: 3rem;
+}
+
+.loading-content h1 {
+    font-size: 1.5rem; /* Ukuran font diperkecil */
+    margin-bottom: 0.5rem; /* Margin diperkecil */
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efek shadow pada teks */
+}
+
+.loading-content p {
+    font-size: 0.9rem; /* Ukuran font diperkecil */
+    color: var(--text-color);
+    margin-bottom: 0.7rem; /* Margin diperkecil */
+    line-height: 1.5; /* Jarak antar baris lebih rapat */
+}
+
+/* Styling untuk list pembaruan */
+.update-list {
+    text-align: left;
+    list-style-type: none;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Jarak antara list dan elemen di bawahnya */
+}
+
+.update-list li {
+    margin-bottom: 1.5rem; /* Jarak antar poin (diperbesar) */
+}
+
+.update-point {
+    font-size: 1rem; /* Ukuran font lebih besar untuk poin */
+    font-weight: bold;
+    color: white;
+    display: block; /* Membuat poin berada di baris baru */
+    margin-bottom: 0.25rem; /* Jarak antara poin dan penjelasan (diperkecil) */
+}
+
+.update-description {
+    font-size: 0.8rem; /* Ukuran font lebih kecil untuk penjelasan */
+    color: var(--text-color);
+    display: block; /* Membuat penjelasan berada di baris baru */
+}
+
+#countdown {
+    font-weight: bold;
+    color: white;
+    font-size: 1rem; /* Ukuran font diperkecil */
+    margin-top: 0.5rem; /* Margin diperkecil */
+}
+
+.loader {
+    color: #172e69;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    width: 30px; /* Ukuran loader diperkecil */
+    height: 30px; /* Ukuran loader diperkecil */
+    animation: spin 1.5s linear infinite;
+    margin: 0.3rem auto 0; /* Margin diperkecil */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animasi fadeIn untuk konten */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer styling (tetap sama dengan halaman index) */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}

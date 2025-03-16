@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Redirect ke halaman baru setelah countdown selesai
         if (countdown <= 0) {
             clearInterval(countdownInterval);
-            window.location.href = "index.html"; // Ganti dengan URL halaman baru
+            window.location.href = "https://muchrifqi.github.io/Apl/Shahaba/Presensi/Pegawai/index.html"; // Ganti dengan URL halaman baru
         }
     }, 1000);
 });

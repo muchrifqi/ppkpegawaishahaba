@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loadingScreen = document.getElementById("loadingScreen");
     const countdownElement = document.getElementById("countdown");
 
-    let countdown = 13;
+    let countdown = 3;
 
     // Update countdown setiap detik
     const countdownInterval = setInterval(() => {

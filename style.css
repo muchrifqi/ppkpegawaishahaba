@@ -90,7 +90,7 @@ body {
     text-align: center;
     animation: fadeIn 1s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 1rem ; /* Tambahkan margin atas dan bawah */
+    margin: 2rem ; /* Tambahkan margin atas dan bawah */
     margin-bottom: 3rem;
 }
 

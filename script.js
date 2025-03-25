@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Redirect ke halaman baru setelah countdown selesai
         if (countdown <= 0) {
             clearInterval(countdownInterval);
-            window.location.href = "https://it-shahaba.netlify.app/index.html";
+            window.location.href = "https://shahaba-presensi.netlify.app/index.html";
         }
     }, 1000);
 });
